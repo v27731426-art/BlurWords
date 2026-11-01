@@ -15,6 +15,8 @@ jobs:
       - run: |
           unzip *.zip
           cd BlurWords
+          sed -i '/dependencyResolutionManagement/,/^}/d' settings.gradle
+          cat settings.gradle
           gradle build
       - uses: actions/upload-artifact@v4
         with:
